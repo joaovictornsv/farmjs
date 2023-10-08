@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { SeedTypeContext } from "./SeedTypeContext.jsx";
 
-export const useSeedType = () => {
+export const useSeedTypeStorage = () => {
   const context = useContext(SeedTypeContext);
 
   if (!context) {

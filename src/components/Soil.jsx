@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { SeedTypes } from "../enums/SeedTypes.js";
 import { PlantGrowthStages } from "../enums/PlantGrowthStages.js";
-import { useSeedType } from "../contexts/useSeedType.js";
+import { useSeedTypeStorage } from "../contexts/useSeedTypeStorage.js";
 
 export const Soil = () => {
-  const { seedType } = useSeedType();
+  const { seedType } = useSeedTypeStorage();
   const [planted, setPlanted] = useState(false);
   const [growthStage, setGrowthStage] = useState(null);
 
@@ -57,7 +57,7 @@ export const Soil = () => {
     >
       {seedType && planted && (
         <span className="leading-none">
-          {SeedTypes[seedType][PlantGrowthStages[growthStage].seedTypeField]}
+          {SeedTypes[seedType].stages[growthStage]}
         </span>
       )}
     </div>

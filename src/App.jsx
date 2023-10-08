@@ -2,10 +2,10 @@ import React from "react";
 import { Soil } from "./components/Soil.jsx";
 import { SeedTypes } from "./enums/SeedTypes.js";
 import { Select } from "./components/Select.jsx";
-import { useSeedType } from "./contexts/useSeedType.js";
+import { useSeedTypeStorage } from "./contexts/useSeedTypeStorage.js";
 
 const App = () => {
-  const { seedType, saveSeedType } = useSeedType();
+  const { seedType, saveSeedType } = useSeedTypeStorage();
   return (
     <div className="flex flex-col justify-center h-screen items-center">
       <div>
