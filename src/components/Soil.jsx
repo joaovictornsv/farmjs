@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { SeedTypes } from "./enums/SeedTypes.js";
-import { PlantGrowthStages } from "./enums/PlantGrowthStages.js";
+import { SeedTypes } from "../enums/SeedTypes.js";
+import { PlantGrowthStages } from "../enums/PlantGrowthStages.js";
+import { useSeedType } from "../contexts/useSeedType.js";
 
-export const Soil = ({ seed }) => {
+export const Soil = () => {
+  const { seedType } = useSeedType();
   const [planted, setPlanted] = useState(false);
   const [growthStage, setGrowthStage] = useState(null);
 
@@ -12,7 +14,7 @@ export const Soil = ({ seed }) => {
   };
 
   const onClick = () => {
-    if (!seed) {
+    if (!seedType) {
       return;
     }
 
@@ -22,13 +24,13 @@ export const Soil = ({ seed }) => {
       return;
     }
 
-    console.log(SeedTypes[seed].onCrop({ growthStage }));
+    console.log(SeedTypes[seedType].onCrop({ growthStage }));
     reset();
   };
 
   const nextStep = () => {
     const { isMedium } = PlantGrowthStages[growthStage];
-    const { timeToBeGrown, timeToBeMedium } = SeedTypes[seed];
+    const { timeToBeGrown, timeToBeMedium } = SeedTypes[seedType];
 
     const timeToNextStage = isMedium ? timeToBeGrown : timeToBeMedium;
 
@@ -53,9 +55,9 @@ export const Soil = ({ seed }) => {
       onClick={onClick}
       className="w-10 cursor-pointer h-10 text-lg border border-dashed border-zinc-500 rounded flex items-center justify-center p-2"
     >
-      {seed && planted && (
+      {seedType && planted && (
         <span className="leading-none">
-          {SeedTypes[seed][PlantGrowthStages[growthStage].seedTypeField]}
+          {SeedTypes[seedType][PlantGrowthStages[growthStage].seedTypeField]}
         </span>
       )}
     </div>

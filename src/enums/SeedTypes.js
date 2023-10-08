@@ -34,6 +34,7 @@ const generatePrecociousCropResult = ({ seed }) => {
 
 export const SeedTypes = createEnum({
   CORN: {
+    label: "Corn",
     littleStage: "*",
     mediumStage: "🌱",
     grownStage: "🌽",
@@ -52,6 +53,7 @@ export const SeedTypes = createEnum({
     },
   },
   GRAPE: {
+    label: "Grape",
     littleStage: ".",
     mediumStage: "🌱",
     grownStage: "🍇",
@@ -70,6 +72,7 @@ export const SeedTypes = createEnum({
     },
   },
   MELON: {
+    label: "Melon",
     littleStage: "o",
     mediumStage: "🌱",
     grownStage: "🍈",
