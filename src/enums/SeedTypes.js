@@ -57,7 +57,7 @@ export const SeedTypes = createEnum({
   GRAPE: {
     label: "Grape",
     stages: {
-      [PlantGrowthStages.LITTLE.name]: ".",
+      [PlantGrowthStages.LITTLE.name]: "*",
       [PlantGrowthStages.MEDIUM.name]: "🌱",
       [PlantGrowthStages.GROWN.name]: "🍇",
     },
@@ -78,7 +78,7 @@ export const SeedTypes = createEnum({
   MELON: {
     label: "Melon",
     stages: {
-      [PlantGrowthStages.LITTLE.name]: ".",
+      [PlantGrowthStages.LITTLE.name]: "o",
       [PlantGrowthStages.MEDIUM.name]: "🌱",
       [PlantGrowthStages.GROWN.name]: "🍈",
     },
